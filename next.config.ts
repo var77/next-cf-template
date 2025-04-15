@@ -22,6 +22,10 @@ const nextConfig: NextConfig = {
     // !! WARN !!
     ignoreBuildErrors: true,
   },
+  env: {
+    NEXT_PUBLIC_PROJECT_ID: '',
+    NEXT_PUBLIC_API_URL: ''
+  }
 };
 
 export default nextConfig;
