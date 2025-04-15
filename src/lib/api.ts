@@ -15,7 +15,7 @@ interface Blog {
   slug: string;
   title: string;
   publishedAt?: string;
-  author: { name: string, image: string };
+  authors: { name: string, image?: string }[];
 }
 
 export async function getBlogPosts() {
@@ -29,12 +29,8 @@ export async function getBlogPosts() {
   }
 }
 
-export interface BlogPost {
-  author: { name: string, image?: string };
-  title: string;
-  slug: string;
+export interface BlogPost extends Blog {
   html: string;
-  publishedAt?: string | number;
   createdAt: string | number;
   updatedAt: string | number;
 }

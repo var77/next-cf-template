@@ -16,19 +16,19 @@ const BlogPostView = ({ blogPost }: { blogPost: BlogPost }) => {
     <article className="max-w-4xl mx-auto py-8 px-4">
       <h1 className="text-3xl font-bold mb-6">{blogPost.title}</h1>
 
-      {blogPost.author && (
-        <div className="flex items-center mb-6">
-          {blogPost.author.image && (
+      {blogPost.authors.map(author => (
+        <div key={author.name} className="flex items-center mb-6">
+          {author.image && (
             <div className="mr-3">
               <Image
-                src={blogPost.author.image}
-                alt={blogPost.author.name}
+                src={author.image}
+                alt={author.name}
                 className="w-12 h-12 rounded-full object-cover"
               />
             </div>
           )}
           <div>
-            <div className="font-medium">{blogPost.author.name}</div>
+            <div className="font-medium">{author.name}</div>
             <div className="text-sm text-gray-500">
               {blogPost.publishedAt ? (
                 <>Published on {formatDate(blogPost.publishedAt)}</>
@@ -38,7 +38,7 @@ const BlogPostView = ({ blogPost }: { blogPost: BlogPost }) => {
             </div>
           </div>
         </div>
-      )}
+      ))}
 
       <div className="prose max-w-none">
         <div dangerouslySetInnerHTML={{ __html: blogPost.html }} />

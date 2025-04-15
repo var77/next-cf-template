@@ -46,7 +46,9 @@ export default async function BlogsPage() {
                     </TableCell>
                     <TableCell>
                       <Link href={href} className="block">
-                        <span className="font-medium">{blog.author.name}</span>
+                        {blog.authors.map(author => (
+                          <span className="font-medium" key={author.name}>{author.name}</span>
+                        ))}
                       </Link>
                     </TableCell>
                     <TableCell className="text-muted-foreground">
