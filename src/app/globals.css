@@ -1,6 +1,4 @@
 @import 'tailwindcss';
-@source '../../node_modules/@diqi/blueprint';
-@import '../../node_modules/@diqi/blueprint/dist/styles/ui.css';
 
 @custom-variant dark (&:is(.dark *));
 
